@@ -7,14 +7,17 @@
   <meta name="apple-mobile-web-app-title" content="Casave">
   <meta name="application-name" content="Casave">
   <meta name="theme-color" content="#D97B4B">
-  <link rel="icon" href="https://lh3.googleusercontent.com/d/1v721DfqsJZAZVQyxowLk8GHLUsocvsJz=w512-h512">
-  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/d/1v721DfqsJZAZVQyxowLk8GHLUsocvsJz=w512-h512">
-  <!-- Banner que aparece al compartir el link (WhatsApp, etc). -->
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Banner que aparece al compartir el link (WhatsApp, etc). icon.png y
+       social-preview.png viven en este mismo repo de GitHub Pages, junto a
+       este index.html -- no son la URL de Google Drive del ICON_URL de
+       Code.gs, esa sirve solo para lo que corre dentro de Apps Script. -->
   <meta property="og:title" content="Casave">
   <meta property="og:description" content="Registra cajas de donacion, facil y rapido.">
-  <meta property="og:image" content="https://lh3.googleusercontent.com/d/1v721DfqsJZAZVQyxowLk8GHLUsocvsJz=w512-h512">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1v721DfqsJZAZVQyxowLk8GHLUsocvsJz=w512-h512">
+  <meta property="og:image" content="https://casaveapp.com/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://casaveapp.com/social-preview.png">
   <style>
     * { box-sizing: border-box; }
     body {
@@ -217,6 +220,15 @@
       var chevron = el.querySelector('.chevron');
       answer.classList.toggle('open');
       chevron.classList.toggle('open');
+    }
+    // Si esta pagina se abrio como casaveapp.com/?centro=NombreDelCentro
+    // (para darle a un grupo un link fijo a su propio centro), este script
+    // pasa ese mismo parametro al link real de la app de Apps Script,
+    // agregandolo al boton "Abrir la app" antes de que lo toquen.
+    var centro = new URLSearchParams(window.location.search).get('centro');
+    if (centro) {
+      var cta = document.querySelector('.cta');
+      cta.href = cta.href + '&centro=' + encodeURIComponent(centro);
     }
   </script>
 </body>
