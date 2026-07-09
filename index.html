@@ -75,6 +75,11 @@
     footer { text-align: center; margin-top: 24px; }
     footer a { color: #D97B4B; text-decoration: none; font-weight: 600; }
     footer p { color: #999; font-size: 13px; }
+    .toggle-instrucciones {
+      text-align: center; color: #D97B4B; font-weight: 600; font-size: 14.5px;
+      margin: 0 0 26px; cursor: pointer;
+    }
+    .toggle-instrucciones .chevron { display: inline-block; }
   </style>
 </head>
 <body>
@@ -93,6 +98,10 @@
 
     <a class="cta" href="https://script.google.com/macros/s/AKfycbwQfBfUZ3GyTpFZGocet2vSNggIHhDXgD0bLcSDlUaXZdu1QkcV1eRmvnECuCDfBc_q/exec?app=1">Abrir la app &rarr;</a>
     <p class="cta-note">Se abre en tu navegador &mdash; no necesitas instalar nada de una tienda de apps.</p>
+
+    <div id="toggleInstrucciones" class="toggle-instrucciones" onclick="toggleInstrucciones()">Ver instrucciones completas <span class="chevron" id="toggleChevron">&#9660;</span></div>
+
+    <div id="instruccionesCompletas" style="display:none;">
 
     <div class="card">
       <h2><span class="badge">1</span> Agrega la app a tu pantalla de inicio</h2>
@@ -179,12 +188,23 @@
       </div>
     </div>
 
+    </div>
+
     <footer>
       <p>¿Dudas? Escribe a <a href="mailto:Leo@tarafoundation.org">Leo@tarafoundation.org</a></p>
     </footer>
   </div>
 
   <script>
+    function toggleInstrucciones() {
+      var panel = document.getElementById('instruccionesCompletas');
+      var link = document.getElementById('toggleInstrucciones');
+      var chevron = document.getElementById('toggleChevron');
+      var abierto = panel.style.display !== 'none';
+      panel.style.display = abierto ? 'none' : 'block';
+      link.firstChild.textContent = abierto ? 'Ver instrucciones completas ' : 'Ocultar instrucciones completas ';
+      chevron.style.transform = abierto ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
     function showTab(id, btn) {
       document.querySelectorAll('.tabpanel').forEach(function (el) { el.classList.remove('active'); });
       document.querySelectorAll('.tabbtn').forEach(function (el) { el.classList.remove('active'); });
