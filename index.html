@@ -1,75 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Casave</title>
-
-  <!-- Esto es lo que Apps Script NO puede darte: un icono real al agregar
-       a pantalla de inicio, y un banner al compartir el link. Esta pagina
-       vive fuera de Apps Script (en GitHub Pages), asi que estas etiquetas
-       si funcionan de verdad. -->
-  <meta name="apple-mobile-web-app-title" content="Casave">
-  <meta name="application-name" content="Casave">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#D97B4B">
-  <link rel="icon" href="icon.png">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <meta property="og:title" content="Casave">
-  <meta property="og:description" content="Registra cajas de donacion, facil y rapido.">
-  <meta property="og:image" content="https://casaveapp.com/social-preview.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://casaveapp.com/social-preview.png">
-
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      margin: 0; padding: 0; color: #1a1a1a; background: #fafaf8;
-      display: flex; align-items: center; justify-content: center;
-      min-height: 100vh;
-    }
-    .wrap { max-width: 420px; width: 100%; margin: 0 auto; padding: 28px 24px; text-align: center; }
-    .icon {
-      width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 14px;
-      box-shadow: 0 6px 20px rgba(217,123,75,0.35);
-    }
-    .icon img { width: 100%; height: 100%; border-radius: 20px; display: block; }
-    h1 { font-size: 26px; margin: 0 0 4px; color: #D97B4B; }
-    .subtitle { color: #666; font-size: 15px; margin: 0 0 26px; }
-    .cta {
-      display: block; text-align: center; background: #D97B4B; color: #fff;
-      font-weight: 700; font-size: 17px; padding: 16px; border-radius: 14px;
-      text-decoration: none; margin: 0 0 10px; box-shadow: 0 8px 20px rgba(217,123,75,0.3);
-    }
-    .cta:active { transform: scale(0.98); }
-    .note { color: #888; font-size: 13px; line-height: 1.5; margin: 0; }
-    .note strong { color: #555; }
-  </style>
+<meta charset="utf-8">
+<title>Casave</title>
+<script>
+  window.location.replace(
+    "https://script.google.com/macros/s/AKfycbwQfBfUZ3GyTpFZGocet2vSNggIHhDXgD0bLcSDlUaXZdu1QkcV1eRmvnECuCDfBc_q/exec" + window.location.search
+  );
+</script>
 </head>
 <body>
-  <div class="wrap">
-    <div class="icon"><img src="icon.png" alt="Casave"></div>
-    <h1>Casave</h1>
-    <p class="subtitle">Inventario de donaciones para Venezuela</p>
-
-    <a class="cta" href="https://script.google.com/macros/s/AKfycbwQfBfUZ3GyTpFZGocet2vSNggIHhDXgD0bLcSDlUaXZdu1QkcV1eRmvnECuCDfBc_q/exec" target="_top">Abrir la app &rarr;</a>
-
-    <p class="note"><strong>Primera vez aqui:</strong> antes de tocar el boton, agrega esta pagina a tu pantalla de inicio (icono de compartir &#x2191; en iPhone, o los tres puntos en Android &rarr; "Agregar a pantalla de inicio"). Asi la proxima vez abres la app con un toque, con el icono correcto.</p>
-  </div>
-  <script>
-    // Si esta pagina se abrio como casaveapp.com/?centro=NombreDelCentro
-    // (para darle a un grupo un link fijo a su propio centro), este
-    // script pasa ese mismo parametro al link real de la app de Apps
-    // Script, agregandolo al boton "Abrir la app" antes de que lo toquen.
-    var centro = new URLSearchParams(window.location.search).get('centro');
-    if (centro) {
-      var cta = document.querySelector('.cta');
-      cta.href = cta.href + '&centro=' + encodeURIComponent(centro);
-    }
-  </script>
+  <p>Redirigiendo a Casave...</p>
 </body>
 </html>
